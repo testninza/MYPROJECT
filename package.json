@@ -1,16 +1,14 @@
 {
-  "name": "dd-app",
-  "version": "3.0.0",
-  "description": "A Node.js app with different vulnerable packages",
+  "name": "demoapp",
+  "version": "1.0.0",
+  "description": "ci/cd pipeline integration demo project",
   "main": "index.js",
-  "dependencies": {
-    "express": "4.16.0",
-    "node-fetch": "2.6.7",
-    "sanitize-html": "1.20.0"
-  },
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Your Name",
-  "license": "MIT"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
 }
