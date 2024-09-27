@@ -1,7 +1,7 @@
 {
   "name": "demoapp",
   "version": "1.0.0",
-  "description": "ci/cd pipeline integration demo project",
+  "description": "CI/CD pipeline integration demo project with vulnerable dependencies",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.0"
+    "express": "4.16.0",  // Known vulnerability (prototype pollution)
+    "mongoose": "5.0.0",   // Known vulnerability (NoSQL injection)
+    "lodash": "4.17.10",   // Known vulnerability (prototype pollution)
+    "async": "2.6.0"       // Known vulnerability (Denial of Service)
   }
 }
