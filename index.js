@@ -22,7 +22,7 @@ app.get('/greet', (req, res) => {
 app.post('/change-password', (req, res) => {
   const newPassword = req.body.password; // No CSRF protection
   // Change password logic here...
-  res.send('Password changed!');
+  res.send('Password ggg!');
 });
 
 
