@@ -25,6 +25,12 @@ app.post('/change-password', (req, res) => {
   res.send('Password changed!');
 });
 
+
+app.GET('/change-password', (req, res) => {
+
+  res.send('Password not changed!');
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
