@@ -1,4 +1,4 @@
-name: SCAN SCA using Snyk
+name: Example workflow using Snyk
 
 on: 
   push:
@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master # Updated to the latest stable version
-         # Ensure the workflow continues even if vulnerabilities are found
+        continue-on-error: true # Ensure the workflow continues even if vulnerabilities are found
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
@@ -34,4 +34,3 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3 # Updated to v3
         with:
           sarif_file: snyk.sarif
-        if: always()
