@@ -1,14 +1,18 @@
 {
-  "name": "demoapp",
-  "version": "1.0.0",
-  "description": "ci/cd pipeline integration demo project",
+  "name": "dd-app",
+  "version": "3.0.0",
+  "description": "A Node.js app with different vulnerable packages",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "4.16.0"
-  }
+    "express": "4.16.0",
+    "mongoose": "5.7.5",
+    "node-fetch": "2.6.7",
+    "sanitize-html": "1.20.0",
+    "jsonwebtoken": "8.5.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Your Name",
+  "license": "MIT"
 }
