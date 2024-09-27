@@ -3,7 +3,7 @@ name: SCAN SCA using Snyk
 on: 
   push:
     branches:
-      - main # Adjust to the branch you want to trigger this workflow
+      - main
   pull_request:
     branches:
       - main
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      security-events: write # Required for Code Scanning alerts
+      security-events: write
 
     steps:
       - name: Checkout code
@@ -23,15 +23,14 @@ jobs:
         run: npm install
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master # Updated to the latest stable version
-         # Ensure the workflow continues even if vulnerabilities are found
+        uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --sarif-file-output=snyk.sarif
 
       - name: Upload SARIF results to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3 # Updated to v3
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: snyk.sarif
-        if: always()
+        if: always() # Ensure it only runs if previous steps succeeded
