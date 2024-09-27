@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master # Updated to the latest stable version
-        continue-on-error: true # Ensure the workflow continues even if vulnerabilities are found
+         # Ensure the workflow continues even if vulnerabilities are found
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
@@ -34,3 +34,4 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3 # Updated to v3
         with:
           sarif_file: snyk.sarif
+        if: always()
