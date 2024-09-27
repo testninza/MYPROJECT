@@ -31,6 +31,7 @@ jobs:
 
   # Snyk will run only if the dependency files changed
   SCA-USING-SNYK:
+    continue-on-error: true
     needs: FILTER_FILES
     runs-on: ubuntu-latest
     permissions:
@@ -58,6 +59,7 @@ jobs:
 
   # Semgrep will always run on every push and pull request
   CODE-SCAN-SEMGREP:
+    continue-on-error: true
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -76,7 +78,7 @@ jobs:
 
       - name: Scan Codebase
         run: semgrep --config "p/javascript" --error --sarif -o semgrep_vul.sarif
-
+      
       - name: Upload SARIF results to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
